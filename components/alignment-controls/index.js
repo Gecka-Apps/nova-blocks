@@ -2,7 +2,6 @@ import * as icons from "../../blocks/icons";
 import "./style.scss";
 
 import BlockHorizontalAlignmentToolbar from '../block-horizontal-alignment-toolbar';
-import withHoverPreview from '../with-hover-preview';
 
 const { __ } = wp.i18n;
 
@@ -69,8 +68,6 @@ class AlignmentControls extends Component {
 			},
 			setAttributes
 		} = this.props;
-
-		const HorizontalToolbar = withHoverPreview( BlockHorizontalAlignmentToolbar );
 
 		return (
 			<Fragment>

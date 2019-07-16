@@ -1,10 +1,12 @@
+import withPreview from "../../components/with-preview";
+
 const { Component, Fragment } = wp.element;
 
 import Controls from './controls';
 import Inspector from './inspector';
 import MediaPreview from './preview';
 
-export default class Edit extends Component {
+class Edit extends Component {
 
 	constructor() {
 		super( ...arguments );
@@ -18,12 +20,24 @@ export default class Edit extends Component {
 
 	render() {
 
+		const props = Object.assign( {}, this.props );
+		props.attributes = Object.assign( {}, props.attributes, props.preview );
+
+		const {
+			attributes: {
+				positionIndicator,
+			},
+			setAttributes,
+		} = this.props;
+
 		return [
 			<Fragment>
-				<MediaPreview { ...this.props } updateImages={ this.updateImages.bind( this ) } />
+				<MediaPreview { ...props } updateImages={ this.updateImages.bind( this ) } />
 				<Controls { ...this.props } updateImages={ this.updateImages.bind( this ) } />
 				<Inspector { ...this.props } />
 			</Fragment>
 		]
 	}
 }
+
+export default withPreview( Edit );

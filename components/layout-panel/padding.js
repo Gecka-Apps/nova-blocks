@@ -13,8 +13,8 @@ const {
 
 export default class PaddingControls extends Component {
 
-	updatePreview( props ) {
-		this.props.updatePreview( props )
+	updatePreview( attributes ) {
+		this.props.updatePreview( attributes );
 	}
 
 	render() {

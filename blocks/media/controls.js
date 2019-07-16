@@ -18,8 +18,13 @@ const {
 } = wp.components;
 
 export default class Controls extends Component {
+
 	constructor( props ) {
 		super( ...arguments );
+	}
+
+	updatePreview( attributes ) {
+		this.props.updatePreview( attributes );
 	}
 
 	render() {
@@ -56,7 +61,11 @@ export default class Controls extends Component {
 						return {
 							...MEDIA_ALIGNMENTS_CONTROLS[control],
 							onClick: () => { setAttributes({ mediaPosition: control } )},
-							isActive: mediaPosition === control
+							isActive: mediaPosition === control,
+							extraProps: {
+								onMouseEnter: this.updatePreview.bind( this, { mediaPosition: control } ),
+								onMouseLeave: this.updatePreview.bind( this, { mediaPosition } )
+							}
 						}
 					}) }
 				/>

@@ -1,5 +1,4 @@
 import * as icons from "../../blocks/icons";
-import withHoverPreview from "../with-hover-preview";
 
 const { __ } = wp.i18n;
 
@@ -94,7 +93,6 @@ const withBlockEditContext = ( mapContextToProps ) => createHigherOrderComponent
 }, 'withBlockEditContext' );
 
 export default compose(
-	withHoverPreview(),
 	withBlockEditContext( ( { clientId } ) => {
 		return {
 			clientId,
