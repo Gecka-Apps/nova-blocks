@@ -12,6 +12,11 @@ const {
 } = wp.components;
 
 export default class WidthControls extends Component {
+
+	updatePreview( props ) {
+		this.props.updatePreview( props )
+	}
+
 	render() {
 
 		const {
@@ -35,6 +40,8 @@ export default class WidthControls extends Component {
 				{ contentWidthOptions.map( option =>
 					<Button isDefault={ option.value !== contentWidth }
 					        isPrimary={ option.value === contentWidth }
+					        onMouseEnter={ this.updatePreview.bind( this, { contentWidth: option.value } ) }
+					        onMouseLeave={ this.updatePreview.bind( this, { contentWidth } ) }
 					        onClick={ () => { setAttributes( { contentWidth: option.value} ) } }>
 						{ option.label }
 					</Button>

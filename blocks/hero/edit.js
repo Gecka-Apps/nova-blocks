@@ -14,6 +14,7 @@ import {
 
 import HeroPreview from './preview';
 import HeroBlockControls from './controls';
+import withPreview from '../../components/with-preview';
 
 const { __ } = wp.i18n;
 
@@ -81,9 +82,12 @@ let debouncedOnSubscribe = debounce(() => {
 
 wp.data.subscribe( debouncedOnSubscribe );
 
-export default class Edit extends Component {
+class Edit extends Component {
 
 	render() {
+
+		const props = Object.assign( {}, this.props );
+		props.attributes = Object.assign( {}, props.attributes, props.preview );
 
 		const {
 			attributes: {
@@ -94,7 +98,7 @@ export default class Edit extends Component {
 
 		return [
 			<Fragment>
-				<HeroPreview { ...this.props } />
+				<HeroPreview { ...props } />
 				<HeroBlockControls { ...this.props } />
 			</Fragment>,
 			<InspectorControls>
@@ -123,3 +127,5 @@ export default class Edit extends Component {
 		]
 	}
 }
+
+export default withPreview( Edit );

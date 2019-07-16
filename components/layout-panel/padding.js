@@ -12,6 +12,11 @@ const {
 } = wp.components;
 
 export default class PaddingControls extends Component {
+
+	updatePreview( props ) {
+		this.props.updatePreview( props )
+	}
+
 	render() {
 
 		const {
@@ -36,6 +41,8 @@ export default class PaddingControls extends Component {
 					<Button key={ option.value }
 							isDefault={ option.value !== contentPadding }
 					        isPrimary={ option.value === contentPadding }
+					        onMouseEnter={ this.updatePreview.bind( this, { contentPadding: option.value } ) }
+					        onMouseLeave={ this.updatePreview.bind( this, { contentPadding } ) }
 					        onClick={ () => { setAttributes( { contentPadding: option.value } ) } }>
 						{ option.label }
 					</Button>
