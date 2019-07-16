@@ -2,6 +2,7 @@ import * as icons from "../../blocks/icons";
 import "./style.scss";
 
 import BlockHorizontalAlignmentToolbar from '../block-horizontal-alignment-toolbar';
+import withHoverPreview from '../with-hover-preview';
 
 const { __ } = wp.i18n;
 
@@ -52,6 +53,12 @@ class AlignmentToolbar extends Component {
 
 class AlignmentControls extends Component {
 
+	onHorizontalAlignmentChange( horizontalAlignment ) {
+		wp.data.select('core/block-editor').getSelectedBlock().innerBlocks.map( block => {
+			wp.data.dispatch( 'core/block-editor' ).updateBlockAttributes( block.clientId, { align: horizontalAlignment } );
+		} );
+	}
+
 	render() {
 
 		const {
@@ -63,31 +70,37 @@ class AlignmentControls extends Component {
 			setAttributes
 		} = this.props;
 
+		const HorizontalToolbar = withHoverPreview( BlockHorizontalAlignmentToolbar );
+
 		return (
 			<Fragment>
 				<PanelRow>
 					<span>{ __( 'Horizontal', '__plugin_txtd' ) }</span>
 					<BlockHorizontalAlignmentToolbar
-						value={horizontalAlignment}
-						onChange={horizontalAlignment => {
-							wp.data.select('core/block-editor').getSelectedBlock().innerBlocks.map( block => {
-								wp.data.dispatch( 'core/block-editor' ).updateBlockAttributes( block.clientId, { align: horizontalAlignment } );
-							} );
-							setAttributes( { horizontalAlignment } )
-						}}
+						value={ horizontalAlignment }
+						onMouseEnter={ ( horizontalAlignment ) => {
+							this.onHorizontalAlignmentChange( horizontalAlignment );
+						} }
+						onMouseLeave={ () => {
+							this.onHorizontalAlignmentChange( horizontalAlignment );
+						} }
+						onChange={ ( horizontalAlignment ) => {
+							this.onHorizontalAlignmentChange( horizontalAlignment );
+							setAttributes( { horizontalAlignment } );
+						} }
 					/>
 				</PanelRow>
 				{ applyMinimumHeightBlock && <PanelRow>
 					<span>{ __( 'Vertical', '__plugin_txtd' ) }</span>
 					<BlockVerticalAlignmentToolbar
-						value={verticalAlignment}
-						onChange={verticalAlignment => setAttributes( {verticalAlignment} )}
+						value={ verticalAlignment }
+						onChange={ ( verticalAlignment ) => { setAttributes( { verticalAlignment } ) } }
 					/>
 				</PanelRow> }
 			</Fragment>
 		)
 	}
-}
+};
 
 export {
 	AlignmentControls,

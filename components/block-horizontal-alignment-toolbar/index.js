@@ -1,4 +1,5 @@
 import * as icons from "../../blocks/icons";
+import withHoverPreview from "../with-hover-preview";
 
 const { __ } = wp.i18n;
 
@@ -36,10 +37,20 @@ const BLOCK_ALIGNMENTS_CONTROLS = {
 const DEFAULT_CONTROLS = [ 'left', 'center', 'right' ];
 const DEFAULT_CONTROL = 'center';
 
-export function BlockHorizontalAlignmentToolbar( { isCollapsed, value, onChange, controls = DEFAULT_CONTROLS } ) {
+export function BlockHorizontalAlignmentToolbar( props ) {
+
 	function applyOrUnset( align ) {
 		return () => onChange( value === align ? undefined : align );
 	}
+
+	const {
+		isCollapsed,
+		value,
+		onChange,
+		controls = DEFAULT_CONTROLS,
+		onMouseEnter,
+		onMouseLeave,
+	} = props;
 
 	const activeAlignment = BLOCK_ALIGNMENTS_CONTROLS[ value ];
 	const defaultAlignmentControl = BLOCK_ALIGNMENTS_CONTROLS[ DEFAULT_CONTROL ];
@@ -53,8 +64,14 @@ export function BlockHorizontalAlignmentToolbar( { isCollapsed, value, onChange,
 					return {
 						...BLOCK_ALIGNMENTS_CONTROLS[ control ],
 						isActive: value === control,
-						onClick: applyOrUnset(control),
-						className: "pixelgrade-hero-horizontal-alignment-button"
+						onClick: applyOrUnset( control ),
+						extraProps: {
+							onMouseEnter: () => {
+								onMouseEnter( control );
+							},
+							onMouseLeave
+						},
+						className: "pixelgrade-hero-horizontal-alignment-button",
 					};
 				} )
 			}
@@ -77,6 +94,7 @@ const withBlockEditContext = ( mapContextToProps ) => createHigherOrderComponent
 }, 'withBlockEditContext' );
 
 export default compose(
+	withHoverPreview(),
 	withBlockEditContext( ( { clientId } ) => {
 		return {
 			clientId,
