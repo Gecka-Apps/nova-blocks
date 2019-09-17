@@ -1,3 +1,5 @@
+import "./plugins/style-manager";
+
 import "./filters/with-block-id";
 import "./filters/with-block-index";
 import "./filters/with-font-size-picker";

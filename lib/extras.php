@@ -10,6 +10,14 @@ function novablocks_register_settings() {
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
+	register_setting(
+		'novablocks',
+		'novablocks_style_manager_settings',
+		array(
+			'type'              => 'string',
+			'show_in_rest'      => true,
+		)
+	);
 }
 add_action( 'admin_init', 'novablocks_register_settings' );
 add_action( 'rest_api_init', 'novablocks_register_settings' );

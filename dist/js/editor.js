@@ -122,7 +122,7 @@ module.exports = _createClass;
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _typeof = __webpack_require__(17);
+var _typeof = __webpack_require__(15);
 
 var assertThisInitialized = __webpack_require__(10);
 
@@ -153,7 +153,7 @@ module.exports = _getPrototypeOf;
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var setPrototypeOf = __webpack_require__(18);
+var setPrototypeOf = __webpack_require__(22);
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
@@ -174,18 +174,39 @@ module.exports = _inherits;
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports) {
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (true) {
-  module.exports = __webpack_require__(19);
+  module.exports = __webpack_require__(18);
 } else {}
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -242,34 +263,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-module.exports = _defineProperty;
-
-/***/ }),
 /* 8 */
-/***/ (function(module, exports) {
-
-module.exports = undefined;
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports) {
 
 function _extends() {
@@ -291,6 +285,12 @@ function _extends() {
 }
 
 module.exports = _extends;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = undefined;
 
 /***/ }),
 /* 10 */
@@ -336,12 +336,39 @@ if (true) {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(20);
+  module.exports = __webpack_require__(19);
 } else {}
 
 
 /***/ }),
 /* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var objectWithoutPropertiesLoose = __webpack_require__(23);
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+  var target = objectWithoutPropertiesLoose(source, excluded);
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+module.exports = _objectWithoutProperties;
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayWithHoles = __webpack_require__(24);
@@ -357,7 +384,7 @@ function _slicedToArray(arr, i) {
 module.exports = _slicedToArray;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -454,7 +481,29 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
+/***/ (function(module, exports) {
+
+function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
+
+function _typeof(obj) {
+  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
+    module.exports = _typeof = function _typeof(obj) {
+      return _typeof2(obj);
+    };
+  } else {
+    module.exports = _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
+    };
+  }
+
+  return _typeof(obj);
+}
+
+module.exports = _typeof;
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -495,34 +544,7 @@ module.exports.isShallowEqualArrays = isShallowEqualArrays;
 
 
 /***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var objectWithoutPropertiesLoose = __webpack_require__(23);
-
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
-  var target = objectWithoutPropertiesLoose(source, excluded);
-  var key, i;
-
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
-  }
-
-  return target;
-}
-
-module.exports = _objectWithoutProperties;
-
-/***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -534,44 +556,7 @@ if (true) {
 
 
 /***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
-
-function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
-    module.exports = _typeof = function _typeof(obj) {
-      return _typeof2(obj);
-    };
-  } else {
-    module.exports = _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
-    };
-  }
-
-  return _typeof(obj);
-}
-
-module.exports = _typeof;
-
-/***/ }),
 /* 18 */
-/***/ (function(module, exports) {
-
-function _setPrototypeOf(o, p) {
-  module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-module.exports = _setPrototypeOf;
-
-/***/ }),
-/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -584,7 +569,7 @@ module.exports = _setPrototypeOf;
  * LICENSE file in the root directory of this source tree.
  */
 
-var h=__webpack_require__(13),n="function"===typeof Symbol&&Symbol.for,p=n?Symbol.for("react.element"):60103,q=n?Symbol.for("react.portal"):60106,r=n?Symbol.for("react.fragment"):60107,t=n?Symbol.for("react.strict_mode"):60108,u=n?Symbol.for("react.profiler"):60114,v=n?Symbol.for("react.provider"):60109,w=n?Symbol.for("react.context"):60110,x=n?Symbol.for("react.forward_ref"):60112,y=n?Symbol.for("react.suspense"):60113,aa=n?Symbol.for("react.suspense_list"):60120,ba=n?Symbol.for("react.memo"):
+var h=__webpack_require__(14),n="function"===typeof Symbol&&Symbol.for,p=n?Symbol.for("react.element"):60103,q=n?Symbol.for("react.portal"):60106,r=n?Symbol.for("react.fragment"):60107,t=n?Symbol.for("react.strict_mode"):60108,u=n?Symbol.for("react.profiler"):60114,v=n?Symbol.for("react.provider"):60109,w=n?Symbol.for("react.context"):60110,x=n?Symbol.for("react.forward_ref"):60112,y=n?Symbol.for("react.suspense"):60113,aa=n?Symbol.for("react.suspense_list"):60120,ba=n?Symbol.for("react.memo"):
 60115,ca=n?Symbol.for("react.lazy"):60116;n&&Symbol.for("react.fundamental");n&&Symbol.for("react.responder");var z="function"===typeof Symbol&&Symbol.iterator;
 function A(a){for(var b=a.message,d="https://reactjs.org/docs/error-decoder.html?invariant="+b,c=1;c<arguments.length;c++)d+="&args[]="+encodeURIComponent(arguments[c]);a.message="Minified React error #"+b+"; visit "+d+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ";return a}var B={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}},C={};
 function D(a,b,d){this.props=a;this.context=b;this.refs=C;this.updater=d||B}D.prototype.isReactComponent={};D.prototype.setState=function(a,b){if("object"!==typeof a&&"function"!==typeof a&&null!=a)throw A(Error(85));this.updater.enqueueSetState(this,a,b,"setState")};D.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};function E(){}E.prototype=D.prototype;function F(a,b,d){this.props=a;this.context=b;this.refs=C;this.updater=d||B}var G=F.prototype=new E;
@@ -603,7 +588,7 @@ b.type=a;return b},isValidElement:N,version:"16.9.0",unstable_withSuspenseConfig
 
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -619,7 +604,7 @@ b.type=a;return b},isValidElement:N,version:"16.9.0",unstable_withSuspenseConfig
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(5),m=__webpack_require__(13),q=__webpack_require__(21);function t(a){for(var b=a.message,c="https://reactjs.org/docs/error-decoder.html?invariant="+b,d=1;d<arguments.length;d++)c+="&args[]="+encodeURIComponent(arguments[d]);a.message="Minified React error #"+b+"; visit "+c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ";return a}if(!aa)throw t(Error(227));var ba=null,ca={};
+var aa=__webpack_require__(6),m=__webpack_require__(14),q=__webpack_require__(20);function t(a){for(var b=a.message,c="https://reactjs.org/docs/error-decoder.html?invariant="+b,d=1;d<arguments.length;d++)c+="&args[]="+encodeURIComponent(arguments[d]);a.message="Minified React error #"+b+"; visit "+c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ";return a}if(!aa)throw t(Error(227));var ba=null,ca={};
 function da(){if(ba)for(var a in ca){var b=ca[a],c=ba.indexOf(a);if(!(-1<c))throw t(Error(96),a);if(!ea[c]){if(!b.extractEvents)throw t(Error(97),a);ea[c]=b;c=b.eventTypes;for(var d in c){var e=void 0;var f=c[d],h=b,g=d;if(fa.hasOwnProperty(g))throw t(Error(99),g);fa[g]=f;var k=f.phasedRegistrationNames;if(k){for(e in k)k.hasOwnProperty(e)&&ha(k[e],h,g);e=!0}else f.registrationName?(ha(f.registrationName,h,g),e=!0):e=!1;if(!e)throw t(Error(98),d,a);}}}}
 function ha(a,b,c){if(ia[a])throw t(Error(100),a);ia[a]=b;ja[a]=b.eventTypes[c].dependencies}var ea=[],fa={},ia={},ja={};function ka(a,b,c,d,e,f,h,g,k){var l=Array.prototype.slice.call(arguments,3);try{b.apply(c,l)}catch(n){this.onError(n)}}var la=!1,ma=null,na=!1,oa=null,pa={onError:function(a){la=!0;ma=a}};function qa(a,b,c,d,e,f,h,g,k){la=!1;ma=null;ka.apply(pa,arguments)}
 function ra(a,b,c,d,e,f,h,g,k){qa.apply(this,arguments);if(la){if(la){var l=ma;la=!1;ma=null}else throw t(Error(198));na||(na=!0,oa=l)}}var sa=null,ta=null,va=null;function wa(a,b,c){var d=a.type||"unknown-event";a.currentTarget=va(c);ra(d,b,void 0,a);a.currentTarget=null}function xa(a,b){if(null==b)throw t(Error(30));if(null==a)return b;if(Array.isArray(a)){if(Array.isArray(b))return a.push.apply(a,b),a;a.push(b);return a}return Array.isArray(b)?[a].concat(b):[a,b]}
@@ -888,19 +873,19 @@ rendererPackageName:"react-dom"});var Oj={default:Nj},Pj=Oj&&Nj||Oj;module.expor
 
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (true) {
-  module.exports = __webpack_require__(22);
+  module.exports = __webpack_require__(21);
 } else {}
 
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -928,6 +913,21 @@ exports.unstable_scheduleCallback=function(a,b,c){var f=exports.unstable_now();i
 c}null===M&&N===a&&(S?g():S=!0,e(W,l-f))}else V(a,c),R||Q||(R=!0,d(X));return a};exports.unstable_cancelCallback=function(a){var b=a.next;if(null!==b){if(a===b)a===M?M=null:a===N&&(N=null);else{a===M?M=b:a===N&&(N=b);var c=a.previous;c.next=b;b.previous=c}a.next=a.previous=null}};exports.unstable_wrapCallback=function(a){var b=P;return function(){var c=P;P=b;try{return a.apply(this,arguments)}finally{P=c}}};exports.unstable_getCurrentPriorityLevel=function(){return P};
 exports.unstable_shouldYield=function(){var a=exports.unstable_now();U(a);return null!==O&&null!==M&&M.startTime<=a&&M.expirationTime<O.expirationTime||m()};exports.unstable_requestPaint=aa;exports.unstable_continueExecution=function(){R||Q||(R=!0,d(X))};exports.unstable_pauseExecution=function(){};exports.unstable_getFirstCallbackNode=function(){return M};
 
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+function _setPrototypeOf(o, p) {
+  module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+module.exports = _setPrototypeOf;
 
 /***/ }),
 /* 23 */
@@ -1020,7 +1020,7 @@ module.exports = _nonIterableRest;
  * LICENSE file in the root directory of this source tree.
  */
 
-var l=__webpack_require__(13),m=__webpack_require__(5);function r(a){for(var b=a.message,d="https://reactjs.org/docs/error-decoder.html?invariant="+b,c=1;c<arguments.length;c++)d+="&args[]="+encodeURIComponent(arguments[c]);a.message="Minified React error #"+b+"; visit "+d+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ";return a}
+var l=__webpack_require__(14),m=__webpack_require__(6);function r(a){for(var b=a.message,d="https://reactjs.org/docs/error-decoder.html?invariant="+b,c=1;c<arguments.length;c++)d+="&args[]="+encodeURIComponent(arguments[c]);a.message="Minified React error #"+b+"; visit "+d+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ";return a}
 var t="function"===typeof Symbol&&Symbol.for,aa=t?Symbol.for("react.portal"):60106,v=t?Symbol.for("react.fragment"):60107,ba=t?Symbol.for("react.strict_mode"):60108,ca=t?Symbol.for("react.profiler"):60114,x=t?Symbol.for("react.provider"):60109,da=t?Symbol.for("react.context"):60110,ea=t?Symbol.for("react.concurrent_mode"):60111,fa=t?Symbol.for("react.forward_ref"):60112,A=t?Symbol.for("react.suspense"):60113,ha=t?Symbol.for("react.suspense_list"):60120,ia=t?Symbol.for("react.memo"):60115,ja=t?Symbol.for("react.lazy"):
 60116,ka=t?Symbol.for("react.fundamental"):60117;
 function B(a){if(null==a)return null;if("function"===typeof a)return a.displayName||a.name||null;if("string"===typeof a)return a;switch(a){case v:return"Fragment";case aa:return"Portal";case ca:return"Profiler";case ba:return"StrictMode";case A:return"Suspense";case ha:return"SuspenseList"}if("object"===typeof a)switch(a.$$typeof){case da:return"Context.Consumer";case x:return"Context.Provider";case fa:var b=a.render;b=b.displayName||b.name||"";return a.displayName||(""!==b?"ForwardRef("+b+")":"ForwardRef");
@@ -1174,7 +1174,18 @@ __webpack_require__.r(selectors_namespaceObject);
 __webpack_require__.d(selectors_namespaceObject, "getSettings", function() { return selectors_getSettings; });
 var actions_namespaceObject = {};
 __webpack_require__.r(actions_namespaceObject);
+__webpack_require__.d(actions_namespaceObject, "updateSetting", function() { return actions_updateSetting; });
 __webpack_require__.d(actions_namespaceObject, "updateSettings", function() { return updateSettings; });
+var store_selectors_namespaceObject = {};
+__webpack_require__.r(store_selectors_namespaceObject);
+__webpack_require__.d(store_selectors_namespaceObject, "getSettings", function() { return store_selectors_getSettings; });
+var store_actions_namespaceObject = {};
+__webpack_require__.r(store_actions_namespaceObject);
+__webpack_require__.d(store_actions_namespaceObject, "updateSettings", function() { return actions_updateSettings; });
+var controls_namespaceObject = {};
+__webpack_require__.r(controls_namespaceObject);
+__webpack_require__.d(controls_namespaceObject, "Color", function() { return controls_color; });
+__webpack_require__.d(controls_namespaceObject, "Radio", function() { return controls_radio; });
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
 var classCallCheck = __webpack_require__(0);
@@ -1184,17 +1195,13 @@ var classCallCheck_default = /*#__PURE__*/__webpack_require__.n(classCallCheck);
 var createClass = __webpack_require__(1);
 var createClass_default = /*#__PURE__*/__webpack_require__.n(createClass);
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js
-var possibleConstructorReturn = __webpack_require__(2);
-var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possibleConstructorReturn);
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/extends.js
+var helpers_extends = __webpack_require__(8);
+var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/getPrototypeOf.js
-var getPrototypeOf = __webpack_require__(3);
-var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
-var inherits = __webpack_require__(4);
-var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
+var defineProperty = __webpack_require__(5);
+var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
 function _defineProperty(obj, key, value) {
@@ -1267,10 +1274,10 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 // EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(5);
+var react = __webpack_require__(6);
 
 // EXTERNAL MODULE: external {"commonjs":"lodash","amd":"lodash"}
-var external_commonjs_lodash_amd_lodash_ = __webpack_require__(8);
+var external_commonjs_lodash_amd_lodash_ = __webpack_require__(9);
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/element/build-module/react.js
 
@@ -2223,289 +2230,517 @@ function renderStyle(style) {
 
 
 //# sourceMappingURL=index.js.map
-// CONCATENATED MODULE: ./src/filters/with-block-id/index.js
+// CONCATENATED MODULE: ./src/plugins/style-manager/store/reducer.js
+var DEFAULT_STATE = {};
+/* harmony default export */ var reducer = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_STATE;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
 
+  switch (action.type) {
+    case 'UPDATE_SETTINGS':
+      return action.settings;
 
+    case 'UPDATE_SETTING':
+      var newState = Object.assign(state);
 
-
-
-
-var createHigherOrderComponent = wp.compose.createHigherOrderComponent;
-var addFilter = wp.hooks.addFilter;
-var with_block_id_Component = wp.element.Component;
-var enableBlockIdAttributeOnBlocks = ['novablocks/announcement-bar'];
-
-function addBlockIdAttribute(block) {
-  if (!enableBlockIdAttributeOnBlocks.includes(block.name)) {
-    return block;
-  }
-
-  if (typeof block.attributes !== 'undefined') {
-    block.attributes = Object.assign(block.attributes, {
-      blockId: {
-        type: 'string',
-        default: ''
+      if (!newState[action.blockName]) {
+        newState[action.blockName] = {};
       }
-    });
+
+      if (!newState[action.blockName][action.blockStyle]) {
+        newState[action.blockName][action.blockStyle] = {};
+      }
+
+      newState[action.blockName][action.blockStyle][action.setting] = {
+        value: action.value,
+        output: action.output
+      };
+      return newState;
   }
 
-  return block;
+  return state;
+});
+// CONCATENATED MODULE: ./src/plugins/style-manager/store/selectors.js
+function selectors_getSettings(state) {
+  return state;
 }
-
-addFilter('blocks.registerBlockType', 'novablocks/add-blockId-attribute', addBlockIdAttribute);
-var withBlockIdAttribute = createHigherOrderComponent(function (BlockEdit) {
-  return (
-    /*#__PURE__*/
-    function (_Component) {
-      inherits_default()(BetterBlockEdit, _Component);
-
-      function BetterBlockEdit() {
-        classCallCheck_default()(this, BetterBlockEdit);
-
-        return possibleConstructorReturn_default()(this, getPrototypeOf_default()(BetterBlockEdit).apply(this, arguments));
-      }
-
-      createClass_default()(BetterBlockEdit, [{
-        key: "componentDidMount",
-        value: function componentDidMount() {
-          if (enableBlockIdAttributeOnBlocks.includes(this.props.name)) {
-            this.props.setAttributes({
-              blockId: this.props.clientId
-            });
-          }
-        }
-      }, {
-        key: "render",
-        value: function render() {
-          return Object(react["createElement"])(BlockEdit, this.props);
-        }
-      }]);
-
-      return BetterBlockEdit;
-    }(with_block_id_Component)
-  );
-}, "withBlockIdAttribute");
-addFilter('editor.BlockEdit', 'novablocks/with-blockId-attribute', withBlockIdAttribute);
-// CONCATENATED MODULE: ./src/filters/with-block-index/index.js
-
-
-
-
-
-
-var with_block_index_createHigherOrderComponent = wp.compose.createHigherOrderComponent;
-var with_block_index_addFilter = wp.hooks.addFilter;
-var with_block_index_Component = wp.element.Component;
-var with_block_index_select = wp.data.select;
-var enableBlockIndexAttributeOnBlocks = ['novablocks/hero'];
-
-function addBlockIndexAttribute(block) {
-  if (!enableBlockIndexAttributeOnBlocks.includes(block.name)) {
-    return block;
-  }
-
-  if (typeof block.attributes !== 'undefined') {
-    block.attributes = Object.assign(block.attributes, {
-      blockIndex: {
-        type: 'number',
-        default: -1
-      }
-    });
-  }
-
-  return block;
+// CONCATENATED MODULE: ./src/plugins/style-manager/store/actions.js
+function actions_updateSetting(blockName, blockStyle, setting, value, output) {
+  return {
+    type: 'UPDATE_SETTING',
+    blockName: blockName,
+    blockStyle: blockStyle,
+    setting: setting,
+    value: value,
+    output: output
+  };
 }
-
-with_block_index_addFilter('blocks.registerBlockType', 'novablocks/add-blockIndex-attribute', addBlockIndexAttribute);
-var withBlockIndexAttribute = with_block_index_createHigherOrderComponent(function (BlockEdit) {
-  return (
-    /*#__PURE__*/
-    function (_Component) {
-      inherits_default()(BetterBlockEdit, _Component);
-
-      function BetterBlockEdit() {
-        classCallCheck_default()(this, BetterBlockEdit);
-
-        return possibleConstructorReturn_default()(this, getPrototypeOf_default()(BetterBlockEdit).apply(this, arguments));
-      }
-
-      createClass_default()(BetterBlockEdit, [{
-        key: "componentDidMount",
-        value: function componentDidMount() {
-          this.updateIndex();
-        }
-      }, {
-        key: "updateIndex",
-        value: function updateIndex() {
-          var _this = this;
-
-          if (enableBlockIndexAttributeOnBlocks.includes(this.props.name)) {
-            var oldIndex = this.props.attributes.blockIndex;
-            var newIndex = with_block_index_select('core/block-editor').getBlocks().findIndex(function (block) {
-              return block.clientId === _this.props.clientId;
-            });
-
-            if (oldIndex !== newIndex) {
-              this.props.setAttributes({
-                blockIndex: newIndex
-              });
-            }
-          }
-        }
-      }, {
-        key: "render",
-        value: function render() {
-          return Object(react["createElement"])(BlockEdit, this.props);
-        }
-      }]);
-
-      return BetterBlockEdit;
-    }(with_block_index_Component)
-  );
-}, "withBlockIndexAttribute");
-with_block_index_addFilter('editor.BlockEdit', 'novablocks/with-blockIndex-attribute', withBlockIndexAttribute);
-// EXTERNAL MODULE: ./node_modules/classnames/index.js
-var classnames = __webpack_require__(6);
-var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
-
-// CONCATENATED MODULE: ./src/filters/with-font-size-picker/index.js
+function updateSettings(settings) {
+  return {
+    type: 'UPDATE_SETTINGS',
+    settings: settings
+  };
+}
+// CONCATENATED MODULE: ./src/plugins/style-manager/store/index.js
+var registerStore = wp.data.registerStore;
 
 
-var __ = wp.i18n.__;
+
+var STORE_NAME = 'novablocks-customize';
+/* harmony default export */ var store = (registerStore(STORE_NAME, {
+  reducer: reducer,
+  selectors: selectors_namespaceObject,
+  actions: actions_namespaceObject
+}));
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js
+var possibleConstructorReturn = __webpack_require__(2);
+var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possibleConstructorReturn);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/getPrototypeOf.js
+var getPrototypeOf = __webpack_require__(3);
+var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
+var inherits = __webpack_require__(4);
+var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
+
+// CONCATENATED MODULE: ./src/store/reducer.js
+
+
+function reducer_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function reducer_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { reducer_ownKeys(source, true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { reducer_ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+var reducer_DEFAULT_STATE = {
+  settings: {}
+};
+/* harmony default export */ var store_reducer = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : reducer_DEFAULT_STATE;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'UPDATE_SETTINGS':
+      return reducer_objectSpread({}, state, {
+        settings: action.settings
+      });
+  }
+
+  return state;
+});
+// CONCATENATED MODULE: ./src/store/selectors.js
+function store_selectors_getSettings(state) {
+  return state.settings;
+}
+// CONCATENATED MODULE: ./src/store/actions.js
+function actions_updateSettings(settings) {
+  return {
+    type: 'UPDATE_SETTINGS',
+    settings: settings
+  };
+}
+// CONCATENATED MODULE: ./src/store/index.js
+var store_registerStore = wp.data.registerStore;
+
+
+
+var store_STORE_NAME = 'novablocks';
+/* harmony default export */ var src_store = (store_registerStore(store_STORE_NAME, {
+  reducer: store_reducer,
+  selectors: store_selectors_namespaceObject,
+  actions: store_actions_namespaceObject
+}));
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectWithoutProperties.js
+var objectWithoutProperties = __webpack_require__(12);
+var objectWithoutProperties_default = /*#__PURE__*/__webpack_require__.n(objectWithoutProperties);
+
+// CONCATENATED MODULE: ./src/plugins/style-manager/controls/with-base-control.js
+
+
+
+
+
+
+
+
+
+var with_base_control_Component = wp.element.Component;
+var _wp$data = wp.data,
+    dispatch = _wp$data.dispatch,
+    with_base_control_select = _wp$data.select;
 var _wp$compose = wp.compose,
     compose = _wp$compose.compose,
-    with_font_size_picker_createHigherOrderComponent = _wp$compose.createHigherOrderComponent;
-var _wp$element = wp.element,
-    Fragment = _wp$element.Fragment,
-    with_font_size_picker_Component = _wp$element.Component;
-var _wp$components = wp.components,
-    PanelBody = _wp$components.PanelBody,
-    SelectControl = _wp$components.SelectControl;
-var InspectorControls = wp.blockEditor.InspectorControls;
-var withSelect = wp.data.withSelect;
-var with_font_size_picker_addFilter = wp.hooks.addFilter;
-var enableFontSizeControlOnBlocks = ['core/heading', 'novablocks/headline'];
-var fontSizeOptions = [{
-  value: 'smaller',
-  label: __('Smaller', '__plugin_txtd')
-}, {
-  value: 'normal',
-  label: __('Normal', '__plugin_txtd')
-}, {
-  value: 'larger',
-  label: __('Larger', '__plugin_txtd')
-}];
-var defaultFontSize = 'normal';
+    createHigherOrderComponent = _wp$compose.createHigherOrderComponent;
+/* harmony default export */ var with_base_control = (function (OriginalComponent) {
+  var _dispatch = dispatch('core/editor'),
+      editPost = _dispatch.editPost;
 
-function replaceActiveFontSize(className, fontSize, nextFontSize) {
-  if (className) {
-    var regex = new RegExp('has-[a-z]+-font-size', 'gi');
-    className = className.replace(regex, '').trim();
-  }
+  var _dispatch2 = dispatch(STORE_NAME),
+      updateSetting = _dispatch2.updateSetting;
 
-  var nextClassName = 'has-' + nextFontSize + '-font-size';
-  return className ? className + ' ' + nextClassName : nextClassName;
-}
+  var _select = with_base_control_select(STORE_NAME),
+      getSettings = _select.getSettings;
 
-function withFontSizePicker(WrappedComponent) {
-  return function (props) {
-    var _props$attributes = props.attributes,
-        className = _props$attributes.className,
-        fontSize = _props$attributes.fontSize,
-        level = _props$attributes.level,
-        setAttributes = props.setAttributes;
-    var selectValue = fontSizeOptions.find(function (x) {
-      return x.value === fontSize;
-    }) ? fontSize : defaultFontSize;
-    return [Object(react["createElement"])(WrappedComponent, props), Object(react["createElement"])(InspectorControls, null, level && level < 4 && Object(react["createElement"])(PanelBody, {
-      title: __('Text Settings', '__plugin_txtd'),
-      className: "blocks-custom-font-size"
-    }, Object(react["createElement"])(SelectControl, {
-      label: __('Font Size', '__plugin_txtd'),
-      value: selectValue,
-      options: fontSizeOptions,
-      onChange: function onChange(nextFontSize) {
-        setAttributes({
-          fontSize: nextFontSize,
-          className: replaceActiveFontSize(className, fontSize, nextFontSize)
-        });
+  return (
+    /*#__PURE__*/
+    function (_Component) {
+      inherits_default()(_class, _Component);
+
+      function _class() {
+        classCallCheck_default()(this, _class);
+
+        return possibleConstructorReturn_default()(this, getPrototypeOf_default()(_class).apply(this, arguments));
       }
-    })))];
-  };
-}
 
-var withFontSizeControl = with_font_size_picker_createHigherOrderComponent(function (OriginalComponent) {
-  var BetterComponent = withFontSizePicker(OriginalComponent);
-  return function (props) {
-    if (!enableFontSizeControlOnBlocks.includes(props.name)) {
-      return Object(react["createElement"])(OriginalComponent, props);
-    }
+      createClass_default()(_class, [{
+        key: "onChange",
+        value: function onChange(value) {
+          var _this$props = this.props,
+              blockType = _this$props.blockType,
+              controlName = _this$props.controlName,
+              blockStyle = _this$props.blockStyle,
+              className = _this$props.className,
+              controlOutputCb = _this$props.controlOutputCb,
+              props = objectWithoutProperties_default()(_this$props, ["blockType", "controlName", "blockStyle", "className", "controlOutputCb"]);
 
-    return Object(react["createElement"])(BetterComponent, props);
-  };
+          var output = controlOutputCb(value);
+          updateSetting(blockType.name, blockStyle, controlName, value, output);
+          editPost({
+            novablocks_style_manager_settings: getSettings()
+          });
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          var _this$props2 = this.props,
+              defaultValue = _this$props2.defaultValue,
+              otherProps = objectWithoutProperties_default()(_this$props2, ["defaultValue"]);
+
+          var _this$props3 = this.props,
+              blockType = _this$props3.blockType,
+              blockStyle = _this$props3.blockStyle,
+              controlName = _this$props3.controlName;
+          var settings = getSettings();
+          var newDefaultValue = settings[blockType.name] && settings[blockType.name][blockStyle] && settings[blockType.name][blockStyle][controlName] && settings[blockType.name][blockStyle][controlName].value || defaultValue;
+          return Object(react["createElement"])(OriginalComponent, extends_default()({}, this.props, {
+            defaultValue: newDefaultValue,
+            onChange: this.onChange.bind(this)
+          }));
+        }
+      }]);
+
+      return _class;
+    }(with_base_control_Component)
+  );
 });
-with_font_size_picker_addFilter('editor.BlockEdit', 'novablocks/with-inspector-controls', withFontSizeControl);
+// CONCATENATED MODULE: ./src/plugins/style-manager/controls/color.js
 
-function addFontSizeAttribute(block) {
-  if (!enableFontSizeControlOnBlocks.includes(block.name)) {
-    return block;
-  }
 
-  if (typeof block.attributes !== 'undefined') {
-    block.attributes = Object.assign(block.attributes, {
-      fontSize: {
-        type: 'string',
-        default: defaultFontSize
+
+
+
+
+
+
+var ColorPalette = wp.components.ColorPalette;
+var color_Component = wp.element.Component;
+var color_wp$compose = wp.compose,
+    color_compose = color_wp$compose.compose,
+    color_createHigherOrderComponent = color_wp$compose.createHigherOrderComponent,
+    withState = color_wp$compose.withState;
+
+var color_ColorControl = function ColorControl(props) {
+  var color = props.color,
+      setState = props.setState,
+      _onChange = props.onChange,
+      controlOptions = props.controlOptions;
+  return Object(react["createElement"])(ColorPalette, {
+    colors: controlOptions,
+    value: color,
+    onChange: function onChange(color) {
+      setState({
+        color: color
+      });
+
+      if (typeof _onChange === "function") {
+        _onChange(color);
       }
-    });
-  }
+    },
+    disableCustomColors: true,
+    clearable: false
+  });
+};
 
-  return block;
-}
+var applyWithState = color_createHigherOrderComponent(function (OriginalComponent) {
+  return (
+    /*#__PURE__*/
+    function (_Component) {
+      inherits_default()(_class, _Component);
 
-with_font_size_picker_addFilter('blocks.registerBlockType', 'novablocks/add-font-size-attribute', addFontSizeAttribute);
-// CONCATENATED MODULE: ./src/blocks/core/separator/index.js
+      function _class() {
+        classCallCheck_default()(this, _class);
 
-
-var separator_addSeparatorFilters = function addSeparatorFilters(settings) {
-  var Separator = function Separator(props) {
-    var className = classnames_default()('wp-block-separator', props.className);
-    return Object(react["createElement"])("div", {
-      className: className,
-      dangerouslySetInnerHTML: {
-        __html: settings.separator && settings.separator.markup
+        return possibleConstructorReturn_default()(this, getPrototypeOf_default()(_class).apply(this, arguments));
       }
-    });
-  };
 
-  var replaceSeparatorEdit = wp.compose.createHigherOrderComponent(function (BlockEdit) {
-    return function (props) {
-      if ('core/separator' === props.name) {
-        return Object(react["createElement"])(Separator, {
-          className: props.attributes.className
-        });
-      } else {
-        return Object(react["createElement"])(BlockEdit, props);
+      createClass_default()(_class, [{
+        key: "render",
+        value: function render() {
+          var defaultValue = this.props.defaultValue;
+          var ColorControlWithState = withState({
+            color: defaultValue
+          })(OriginalComponent);
+          return Object(react["createElement"])(ColorControlWithState, this.props);
+        }
+      }]);
+
+      return _class;
+    }(color_Component)
+  );
+});
+/* harmony default export */ var controls_color = (color_compose([with_base_control, applyWithState])(color_ColorControl));
+// CONCATENATED MODULE: ./src/plugins/style-manager/controls/radio.js
+
+
+
+
+
+
+
+
+var RadioControl = wp.components.RadioControl;
+var radio_Component = wp.element.Component;
+var radio_wp$compose = wp.compose,
+    radio_compose = radio_wp$compose.compose,
+    radio_createHigherOrderComponent = radio_wp$compose.createHigherOrderComponent,
+    radio_withState = radio_wp$compose.withState;
+
+var radio_Radio = function Radio(props) {
+  var option = props.option,
+      setState = props.setState,
+      _onChange = props.onChange,
+      controlOptions = props.controlOptions,
+      controlLabel = props.controlLabel;
+  return Object(react["createElement"])(RadioControl, {
+    label: controlLabel,
+    selected: option,
+    options: controlOptions,
+    onChange: function onChange(option) {
+      setState({
+        option: option
+      });
+
+      if (typeof _onChange === "function") {
+        _onChange(option);
+      }
+    }
+  });
+};
+
+var radio_applyWithState = radio_createHigherOrderComponent(function (OriginalComponent) {
+  return (
+    /*#__PURE__*/
+    function (_Component) {
+      inherits_default()(_class, _Component);
+
+      function _class() {
+        classCallCheck_default()(this, _class);
+
+        return possibleConstructorReturn_default()(this, getPrototypeOf_default()(_class).apply(this, arguments));
+      }
+
+      createClass_default()(_class, [{
+        key: "render",
+        value: function render() {
+          var defaultValue = this.props.defaultValue;
+          var RadioControlWithState = radio_withState({
+            option: defaultValue
+          })(OriginalComponent);
+          return Object(react["createElement"])(RadioControlWithState, this.props);
+        }
+      }]);
+
+      return _class;
+    }(radio_Component)
+  );
+});
+/* harmony default export */ var controls_radio = (radio_compose([with_base_control, radio_applyWithState])(radio_Radio));
+// CONCATENATED MODULE: ./src/plugins/style-manager/controls/index.js
+
+
+// CONCATENATED MODULE: ./src/plugins/style-manager/control.js
+
+
+
+var control_Control = function Control(props) {
+  var controlType = props.controlType;
+  var Component = controls_namespaceObject[controlType];
+
+  if (controlType) {
+    return Object(react["createElement"])(Component, props);
+  } else {
+    return null;
+  }
+};
+
+/* harmony default export */ var control = (control_Control);
+// CONCATENATED MODULE: ./src/plugins/style-manager/section.js
+
+
+
+var section_Component = wp.element.Component;
+var PanelBody = wp.components.PanelBody;
+
+var section_Section = function Section(props) {
+  var label = props.label,
+      settings = props.settings;
+  return Object(react["createElement"])(PanelBody, {
+    title: label
+  }, Object.keys(settings).map(function (settingId) {
+    var settingConfig = settings[settingId];
+    return Object(react["createElement"])(control, extends_default()({}, settingConfig, props, {
+      key: settingId
+    }));
+  }));
+};
+
+/* harmony default export */ var section = (section_Section);
+// CONCATENATED MODULE: ./src/plugins/style-manager/block-preview.js
+
+var __ = wp.i18n.__;
+var BlockPreview = wp.blockEditor.BlockPreview;
+var cloneBlock = wp.blocks.cloneBlock;
+
+var block_preview_MyBlockPreview = function MyBlockPreview(props) {
+  var block = props.block,
+      styles = props.styles,
+      blockStyle = props.blockStyle;
+  var activeStyle = styles.find(function (style) {
+    return style.name === blockStyle;
+  });
+  return Object(react["createElement"])("div", {
+    className: "editor-block-styles__item block-editor-block-styles__item"
+  }, Object(react["createElement"])("div", {
+    className: "editor-block-styles__item-preview block-editor-block-styles__item-preview"
+  }, Object(react["createElement"])(BlockPreview, {
+    viewportWidth: 500,
+    blocks: cloneBlock(block)
+  })), activeStyle && Object(react["createElement"])("div", {
+    className: "editor-block-styles__item-label block-editor-block-styles__item-label"
+  }, activeStyle.label));
+};
+
+/* harmony default export */ var block_preview = (block_preview_MyBlockPreview);
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/typeof.js
+var helpers_typeof = __webpack_require__(15);
+var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
+
+// CONCATENATED MODULE: ./src/plugins/style-manager/utils.js
+
+
+
+function utils_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function utils_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { utils_ownKeys(source, true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { utils_ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+var withSelect = wp.data.withSelect;
+var _wp = wp,
+    tokenList = _wp.tokenList;
+function getActiveStyle(styles, className) {
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    var _loop = function _loop() {
+      var style = _step.value;
+
+      if (style.indexOf('is-style-') === -1) {
+        return "continue";
+      }
+
+      var potentialStyleName = style.substring(9);
+      var activeStyle = styles.find(function (style) {
+        return style.name === potentialStyleName;
+      });
+
+      if (activeStyle) {
+        return {
+          v: activeStyle.name
+        };
       }
     };
-  }, "replaceSeparatorEdit");
 
-  var replaceSeparatorSave = function replaceSeparatorSave(element, blockType, attributes) {
-    if ('core/separator' !== blockType.name) {
-      return element;
+    for (var _iterator = new tokenList(className).values()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var _ret = _loop();
+
+      switch (_ret) {
+        case "continue":
+          continue;
+
+        default:
+          if (typeof_default()(_ret) === "object") return _ret.v;
+      }
     }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return != null) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
 
-    return null;
-  };
+  var defaultStyle = styles.find(function (style) {
+    return !!style.isDefault;
+  });
 
-  wp.hooks.addFilter('editor.BlockEdit', 'nova-theme/separator', replaceSeparatorEdit);
-  wp.hooks.addFilter('blocks.getSaveElement', 'nova-theme/separator', replaceSeparatorSave);
-};
+  if (defaultStyle) {
+    return defaultStyle.name;
+  }
+
+  return false;
+}
+var withTypeAndStyle = withSelect(function (select, ownProps) {
+  var _select = select('core/block-editor'),
+      getSelectedBlock = _select.getSelectedBlock;
+
+  var _select2 = select('core/blocks'),
+      getBlockStyles = _select2.getBlockStyles;
+
+  var getBlockType = wp.blocks.getBlockType;
+
+  var _select3 = select(STORE_NAME),
+      getSettings = _select3.getSettings;
+
+  var block = getSelectedBlock();
+
+  if (!block) {
+    return ownProps;
+  }
+
+  var blockType = getBlockType(block.name);
+  var styles = getBlockStyles(block.name);
+  var className = block.attributes.className || '';
+  var blockStyle = getActiveStyle(styles, className);
+  return utils_objectSpread({}, ownProps, {
+    block: block,
+    blockType: blockType,
+    styles: styles,
+    blockStyle: blockStyle
+  });
+});
 // CONCATENATED MODULE: ./src/icons.js
 
-var icons_wp$components = wp.components,
-    SVG = icons_wp$components.SVG,
-    Path = icons_wp$components.Path;
+var _wp$components = wp.components,
+    SVG = _wp$components.SVG,
+    Path = _wp$components.Path;
 var nova = Object(react["createElement"])("svg", {
   width: "24",
   height: "24",
@@ -2801,6 +3036,30 @@ var logo = Object(react["createElement"])("svg", {
   d: "M12 0C5.37258 0 0 5.37258 0 12c0 6.6274 5.37258 12 12 12 6.6274 0 12-5.3726 12-12 0-6.62742-5.3726-12-12-12zm0 7c-2.76142 0-5 2.23858-5 5 0 2.7614 2.23858 5 5 5 2.7614 0 5-2.2386 5-5 0-2.76142-2.2386-5-5-5zm-7 5c0 3.866 3.13401 7 7 7 3.866 0 7-3.134 7-7 0-3.86599-3.134-7-7-7-3.86599 0-7 3.13401-7 7z",
   fill: "#6565F2"
 }));
+var novaFilled = Object(react["createElement"])("svg", {
+  width: "36",
+  height: "36",
+  viewBox: "0 0 36 36",
+  xmlns: "http://www.w3.org/2000/svg"
+}, Object(react["createElement"])("g", {
+  fill: "none",
+  fillRule: "evenodd",
+  stroke: "none",
+  strokeWidth: "1"
+}, Object(react["createElement"])("path", {
+  id: "novaSvgFilledBlue",
+  fill: "#6565F2",
+  d: "M0 18C0 8.059 8.059 0 18 0s18 8.059 18 18-8.059 18-18 18S0 27.941 0 18z"
+}), Object(react["createElement"])("path", {
+  id: "novaSvgFilledYellow",
+  fill: "#FFE42E",
+  fillRule: "nonzero",
+  d: "M8 21.286A4.286 4.286 0 0112.286 17h1.168A4.546 4.546 0 0118 21.546v1.608A3.846 3.846 0 0114.154 27h-.44A5.714 5.714 0 018 21.286z"
+}), Object(react["createElement"])("path", {
+  id: "novaSvgFilledWhite",
+  fill: "#FFFFFF",
+  d: "M12.04 14a6.738 6.738 0 016.697-6h1.684A7.579 7.579 0 0128 15.579v.802c0 4-3.082 7.28-7.001 7.594l.001-.129v-2.573A7.273 7.273 0 0013.727 14H12.04z"
+})));
 var navigation = Object(react["createElement"])("svg", {
   width: "24",
   height: "24",
@@ -2812,6 +3071,394 @@ var navigation = Object(react["createElement"])("svg", {
   d: "M12 0C5.37258 0 0 5.37258 0 12c0 6.6274 5.37258 12 12 12 6.6274 0 12-5.3726 12-12 0-6.62742-5.3726-12-12-12zM5.85714 8C5.38376 8 5 7.61624 5 7.14286 5 6.51167 5.51167 6 6.14286 6H18c.5523 0 1 .44772 1 1s-.4477 1-1 1H5.85714zM5 12.1429c0 .4733.38376.8571.85714.8571H18c.5523 0 1-.4477 1-1s-.4477-1-1-1H6.14286C5.51167 11 5 11.5117 5 12.1429zM5.85714 18C5.38376 18 5 17.6162 5 17.1429 5 16.5117 5.51167 16 6.14286 16H18c.5523 0 1 .4477 1 1s-.4477 1-1 1H5.85714z",
   fill: "#6565F2"
 }));
+// CONCATENATED MODULE: ./src/plugins/style-manager/index.js
+
+
+
+
+
+
+
+
+var style_manager_ = wp.i18n.__;
+var _wp$editPost = wp.editPost,
+    PluginSidebar = _wp$editPost.PluginSidebar,
+    PluginSidebarMoreMenuItem = _wp$editPost.PluginSidebarMoreMenuItem;
+var registerPlugin = wp.plugins.registerPlugin;
+var _wp$element = wp.element,
+    style_manager_Component = _wp$element.Component,
+    Fragment = _wp$element.Fragment;
+var style_manager_wp$components = wp.components,
+    style_manager_PanelBody = style_manager_wp$components.PanelBody,
+    TabPanel = style_manager_wp$components.TabPanel,
+    Button = style_manager_wp$components.Button;
+var style_manager_wp$data = wp.data,
+    style_manager_dispatch = style_manager_wp$data.dispatch,
+    style_manager_select = style_manager_wp$data.select,
+    style_manager_withSelect = style_manager_wp$data.withSelect,
+    subscribe = style_manager_wp$data.subscribe;
+var applyFilters = wp.hooks.applyFilters;
+
+var noop = function noop() {};
+
+wp.api.loadPromise.done(function () {
+  var settings = new wp.api.models.Settings();
+  var SETTING_ID = 'novablocks_style_manager_settings';
+  var style_tag = document.getElementById('novablocks_style_manager_css');
+  subscribe(function () {
+    var isSavingPost = style_manager_select('core/editor').isSavingPost();
+    var isAutosavingPost = style_manager_select('core/editor').isAutosavingPost();
+
+    if (isSavingPost && !isAutosavingPost) {
+      var styleManagerSettings = JSON.stringify(style_manager_select(STORE_NAME).getSettings());
+      settings.save(defineProperty_default()({}, SETTING_ID, styleManagerSettings));
+    }
+  });
+
+  var renderOutput = function renderOutput() {
+    var _select = style_manager_select(STORE_NAME),
+        getSettings = _select.getSettings;
+
+    var styleManagerSettings = getSettings();
+    var output = '';
+    Object.keys(styleManagerSettings).map(function (blockName) {
+      var blockStyles = styleManagerSettings[blockName];
+      Object.keys(blockStyles).map(function (blockStyle) {
+        var settings = blockStyles[blockStyle];
+        Object.keys(settings).map(function (settingName) {
+          var setting = settings[settingName];
+          output = output + setting.output;
+        });
+      });
+    });
+    style_tag.textContent = output;
+  };
+
+  subscribe(renderOutput);
+  settings.fetch().then(function (data) {
+    var styleManagerSettings = JSON.parse(data[SETTING_ID]);
+    style_manager_dispatch(STORE_NAME).updateSettings(styleManagerSettings);
+  });
+});
+
+var style_manager_StyleManagerSidebar = function StyleManagerSidebar(props) {
+  var config = applyFilters('novablocks.styleManagerConfig', {});
+  var blockType = props.blockType,
+      blockStyle = props.blockStyle;
+  var sections = config[blockType.name] && config[blockType.name][blockStyle] || {};
+  return Object(react["createElement"])(Fragment, null, blockType && Object(react["createElement"])(style_manager_PanelBody, null, Object(react["createElement"])(block_preview, props)), Object.keys(sections).map(function (sectionId) {
+    var sectionConfig = sections[sectionId];
+    return Object(react["createElement"])(section, extends_default()({}, sectionConfig, props, {
+      key: sectionId
+    }));
+  }));
+};
+
+var StyleManager = withTypeAndStyle(function (props) {
+  var resetSettings = function resetSettings() {
+    wp.data.dispatch(STORE_NAME).updateSettings({});
+    wp.data.dispatch('core/editor').editPost({
+      novablocks_style_manager_settings: {}
+    });
+  };
+
+  return Object(react["createElement"])(Fragment, null, Object(react["createElement"])(PluginSidebarMoreMenuItem, {
+    target: "sidebar-name"
+  }, style_manager_('Style Manager')), Object(react["createElement"])(PluginSidebar, {
+    name: "sidebar-name",
+    title: "Style Manager"
+  }, props.block ? Object(react["createElement"])(Fragment, null, Object(react["createElement"])(style_manager_StyleManagerSidebar, props), Object(react["createElement"])(style_manager_PanelBody, {
+    title: style_manager_('Reset'),
+    initialOpen: false
+  }, Object(react["createElement"])(Button, {
+    className: 'editor-post-trash',
+    isDefault: true,
+    isLarge: true,
+    onClick: resetSettings
+  }, style_manager_('Reset Settings')))) : Object(react["createElement"])(Fragment, null, Object(react["createElement"])(style_manager_PanelBody, null, style_manager_('A block needs to be selected before you can edit any styles')))));
+});
+registerPlugin('novablocks-style-manager', {
+  icon: novaFilled,
+  render: StyleManager
+});
+// CONCATENATED MODULE: ./src/filters/with-block-id/index.js
+
+
+
+
+
+
+var with_block_id_createHigherOrderComponent = wp.compose.createHigherOrderComponent;
+var addFilter = wp.hooks.addFilter;
+var with_block_id_Component = wp.element.Component;
+var enableBlockIdAttributeOnBlocks = ['novablocks/announcement-bar'];
+
+function addBlockIdAttribute(block) {
+  if (!enableBlockIdAttributeOnBlocks.includes(block.name)) {
+    return block;
+  }
+
+  if (typeof block.attributes !== 'undefined') {
+    block.attributes = Object.assign(block.attributes, {
+      blockId: {
+        type: 'string',
+        default: ''
+      }
+    });
+  }
+
+  return block;
+}
+
+addFilter('blocks.registerBlockType', 'novablocks/add-blockId-attribute', addBlockIdAttribute);
+var withBlockIdAttribute = with_block_id_createHigherOrderComponent(function (BlockEdit) {
+  return (
+    /*#__PURE__*/
+    function (_Component) {
+      inherits_default()(BetterBlockEdit, _Component);
+
+      function BetterBlockEdit() {
+        classCallCheck_default()(this, BetterBlockEdit);
+
+        return possibleConstructorReturn_default()(this, getPrototypeOf_default()(BetterBlockEdit).apply(this, arguments));
+      }
+
+      createClass_default()(BetterBlockEdit, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+          if (enableBlockIdAttributeOnBlocks.includes(this.props.name)) {
+            this.props.setAttributes({
+              blockId: this.props.clientId
+            });
+          }
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          return Object(react["createElement"])(BlockEdit, this.props);
+        }
+      }]);
+
+      return BetterBlockEdit;
+    }(with_block_id_Component)
+  );
+}, "withBlockIdAttribute");
+addFilter('editor.BlockEdit', 'novablocks/with-blockId-attribute', withBlockIdAttribute);
+// CONCATENATED MODULE: ./src/filters/with-block-index/index.js
+
+
+
+
+
+
+var with_block_index_createHigherOrderComponent = wp.compose.createHigherOrderComponent;
+var with_block_index_addFilter = wp.hooks.addFilter;
+var with_block_index_Component = wp.element.Component;
+var with_block_index_select = wp.data.select;
+var enableBlockIndexAttributeOnBlocks = ['novablocks/hero'];
+
+function addBlockIndexAttribute(block) {
+  if (!enableBlockIndexAttributeOnBlocks.includes(block.name)) {
+    return block;
+  }
+
+  if (typeof block.attributes !== 'undefined') {
+    block.attributes = Object.assign(block.attributes, {
+      blockIndex: {
+        type: 'number',
+        default: -1
+      }
+    });
+  }
+
+  return block;
+}
+
+with_block_index_addFilter('blocks.registerBlockType', 'novablocks/add-blockIndex-attribute', addBlockIndexAttribute);
+var withBlockIndexAttribute = with_block_index_createHigherOrderComponent(function (BlockEdit) {
+  return (
+    /*#__PURE__*/
+    function (_Component) {
+      inherits_default()(BetterBlockEdit, _Component);
+
+      function BetterBlockEdit() {
+        classCallCheck_default()(this, BetterBlockEdit);
+
+        return possibleConstructorReturn_default()(this, getPrototypeOf_default()(BetterBlockEdit).apply(this, arguments));
+      }
+
+      createClass_default()(BetterBlockEdit, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+          this.updateIndex();
+        }
+      }, {
+        key: "updateIndex",
+        value: function updateIndex() {
+          var _this = this;
+
+          if (enableBlockIndexAttributeOnBlocks.includes(this.props.name)) {
+            var oldIndex = this.props.attributes.blockIndex;
+            var newIndex = with_block_index_select('core/block-editor').getBlocks().findIndex(function (block) {
+              return block.clientId === _this.props.clientId;
+            });
+
+            if (oldIndex !== newIndex) {
+              this.props.setAttributes({
+                blockIndex: newIndex
+              });
+            }
+          }
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          return Object(react["createElement"])(BlockEdit, this.props);
+        }
+      }]);
+
+      return BetterBlockEdit;
+    }(with_block_index_Component)
+  );
+}, "withBlockIndexAttribute");
+with_block_index_addFilter('editor.BlockEdit', 'novablocks/with-blockIndex-attribute', withBlockIndexAttribute);
+// EXTERNAL MODULE: ./node_modules/classnames/index.js
+var classnames = __webpack_require__(7);
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+
+// CONCATENATED MODULE: ./src/filters/with-font-size-picker/index.js
+
+
+var with_font_size_picker_ = wp.i18n.__;
+var with_font_size_picker_wp$compose = wp.compose,
+    with_font_size_picker_compose = with_font_size_picker_wp$compose.compose,
+    with_font_size_picker_createHigherOrderComponent = with_font_size_picker_wp$compose.createHigherOrderComponent;
+var with_font_size_picker_wp$element = wp.element,
+    with_font_size_picker_Fragment = with_font_size_picker_wp$element.Fragment,
+    with_font_size_picker_Component = with_font_size_picker_wp$element.Component;
+var with_font_size_picker_wp$components = wp.components,
+    with_font_size_picker_PanelBody = with_font_size_picker_wp$components.PanelBody,
+    SelectControl = with_font_size_picker_wp$components.SelectControl;
+var InspectorControls = wp.blockEditor.InspectorControls;
+var with_font_size_picker_withSelect = wp.data.withSelect;
+var with_font_size_picker_addFilter = wp.hooks.addFilter;
+var enableFontSizeControlOnBlocks = ['core/heading', 'novablocks/headline'];
+var fontSizeOptions = [{
+  value: 'smaller',
+  label: with_font_size_picker_('Smaller', '__plugin_txtd')
+}, {
+  value: 'normal',
+  label: with_font_size_picker_('Normal', '__plugin_txtd')
+}, {
+  value: 'larger',
+  label: with_font_size_picker_('Larger', '__plugin_txtd')
+}];
+var defaultFontSize = 'normal';
+
+function replaceActiveFontSize(className, fontSize, nextFontSize) {
+  if (className) {
+    var regex = new RegExp('has-[a-z]+-font-size', 'gi');
+    className = className.replace(regex, '').trim();
+  }
+
+  var nextClassName = 'has-' + nextFontSize + '-font-size';
+  return className ? className + ' ' + nextClassName : nextClassName;
+}
+
+function withFontSizePicker(WrappedComponent) {
+  return function (props) {
+    var _props$attributes = props.attributes,
+        className = _props$attributes.className,
+        fontSize = _props$attributes.fontSize,
+        level = _props$attributes.level,
+        setAttributes = props.setAttributes;
+    var selectValue = fontSizeOptions.find(function (x) {
+      return x.value === fontSize;
+    }) ? fontSize : defaultFontSize;
+    return [Object(react["createElement"])(WrappedComponent, props), Object(react["createElement"])(InspectorControls, null, level && level < 4 && Object(react["createElement"])(with_font_size_picker_PanelBody, {
+      title: with_font_size_picker_('Text Settings', '__plugin_txtd'),
+      className: "blocks-custom-font-size"
+    }, Object(react["createElement"])(SelectControl, {
+      label: with_font_size_picker_('Font Size', '__plugin_txtd'),
+      value: selectValue,
+      options: fontSizeOptions,
+      onChange: function onChange(nextFontSize) {
+        setAttributes({
+          fontSize: nextFontSize,
+          className: replaceActiveFontSize(className, fontSize, nextFontSize)
+        });
+      }
+    })))];
+  };
+}
+
+var withFontSizeControl = with_font_size_picker_createHigherOrderComponent(function (OriginalComponent) {
+  var BetterComponent = withFontSizePicker(OriginalComponent);
+  return function (props) {
+    if (!enableFontSizeControlOnBlocks.includes(props.name)) {
+      return Object(react["createElement"])(OriginalComponent, props);
+    }
+
+    return Object(react["createElement"])(BetterComponent, props);
+  };
+});
+with_font_size_picker_addFilter('editor.BlockEdit', 'novablocks/with-inspector-controls', withFontSizeControl);
+
+function addFontSizeAttribute(block) {
+  if (!enableFontSizeControlOnBlocks.includes(block.name)) {
+    return block;
+  }
+
+  if (typeof block.attributes !== 'undefined') {
+    block.attributes = Object.assign(block.attributes, {
+      fontSize: {
+        type: 'string',
+        default: defaultFontSize
+      }
+    });
+  }
+
+  return block;
+}
+
+with_font_size_picker_addFilter('blocks.registerBlockType', 'novablocks/add-font-size-attribute', addFontSizeAttribute);
+// CONCATENATED MODULE: ./src/blocks/core/separator/index.js
+
+
+var separator_addSeparatorFilters = function addSeparatorFilters(settings) {
+  var Separator = function Separator(props) {
+    var className = classnames_default()('wp-block-separator', props.className);
+    return Object(react["createElement"])("div", {
+      className: className,
+      dangerouslySetInnerHTML: {
+        __html: settings.separator && settings.separator.markup
+      }
+    });
+  };
+
+  var replaceSeparatorEdit = wp.compose.createHigherOrderComponent(function (BlockEdit) {
+    return function (props) {
+      if ('core/separator' === props.name) {
+        return Object(react["createElement"])(Separator, {
+          className: props.attributes.className
+        });
+      } else {
+        return Object(react["createElement"])(BlockEdit, props);
+      }
+    };
+  }, "replaceSeparatorEdit");
+
+  var replaceSeparatorSave = function replaceSeparatorSave(element, blockType, attributes) {
+    if ('core/separator' !== blockType.name) {
+      return element;
+    }
+
+    return null;
+  };
+
+  wp.hooks.addFilter('editor.BlockEdit', 'nova-theme/separator', replaceSeparatorEdit);
+  wp.hooks.addFilter('blocks.getSaveElement', 'nova-theme/separator', replaceSeparatorSave);
+};
 // CONCATENATED MODULE: ./src/blocks/announcement-bar/index.js
 
 
@@ -2910,14 +3557,6 @@ function init() {
 }
 
 /* harmony default export */ var announcement_bar = (init);
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/extends.js
-var helpers_extends = __webpack_require__(9);
-var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
-var defineProperty = __webpack_require__(7);
-var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
-
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
 var assertThisInitialized = __webpack_require__(10);
 var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
@@ -2935,7 +3574,7 @@ var placeholder_wp$element = wp.element,
     placeholder_Component = placeholder_wp$element.Component,
     placeholder_Fragment = placeholder_wp$element.Fragment;
 var placeholder_wp$components = wp.components,
-    Button = placeholder_wp$components.Button,
+    placeholder_Button = placeholder_wp$components.Button,
     Placeholder = placeholder_wp$components.Placeholder,
     TextControl = placeholder_wp$components.TextControl;
 var ENTER = wp.keycodes.ENTER;
@@ -2992,7 +3631,7 @@ function (_Component) {
 
           _this2.handleKeyDown(keyCode);
         }
-      }), Object(react["createElement"])(Button, {
+      }), Object(react["createElement"])(placeholder_Button, {
         isLarge: true,
         disabled: !this.state.apiKey,
         type: "button",
@@ -3007,16 +3646,12 @@ function (_Component) {
 }(placeholder_Component);
 
 /* harmony default export */ var placeholder = (placeholder_MapPlaceholder);
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectWithoutProperties.js
-var objectWithoutProperties = __webpack_require__(15);
-var objectWithoutProperties_default = /*#__PURE__*/__webpack_require__.n(objectWithoutProperties);
-
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/slicedToArray.js
-var slicedToArray = __webpack_require__(12);
+var slicedToArray = __webpack_require__(13);
 var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray);
 
 // EXTERNAL MODULE: ./node_modules/react-dom/server.browser.js
-var server_browser = __webpack_require__(16);
+var server_browser = __webpack_require__(17);
 var server_browser_default = /*#__PURE__*/__webpack_require__.n(server_browser);
 
 // CONCATENATED MODULE: ./src/blocks/google-map/pin.js
@@ -3241,51 +3876,6 @@ var getCenterFromMarkers = function getCenterFromMarkers(markers) {
 var getMarkersCenter = function getMarkersCenter() {
   return getCenterFromMarkers(this.props.attributes.markers);
 };
-// CONCATENATED MODULE: ./src/store/reducer.js
-
-
-function reducer_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function reducer_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { reducer_ownKeys(source, true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { reducer_ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-var DEFAULT_STATE = {
-  settings: {}
-};
-/* harmony default export */ var reducer = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_STATE;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case 'UPDATE_SETTINGS':
-      return reducer_objectSpread({}, state, {
-        settings: action.settings
-      });
-  }
-
-  return state;
-});
-// CONCATENATED MODULE: ./src/store/selectors.js
-function selectors_getSettings(state) {
-  return state.settings;
-}
-// CONCATENATED MODULE: ./src/store/actions.js
-function updateSettings(settings) {
-  return {
-    type: 'UPDATE_SETTINGS',
-    settings: settings
-  };
-}
-// CONCATENATED MODULE: ./src/store/index.js
-var registerStore = wp.data.registerStore;
-
-
-
-var STORE_NAME = 'novablocks';
-/* harmony default export */ var store = (registerStore(STORE_NAME, {
-  reducer: reducer,
-  selectors: selectors_namespaceObject,
-  actions: actions_namespaceObject
-}));
 // CONCATENATED MODULE: ./src/components/with-settings/index.js
 
 
@@ -3298,7 +3888,7 @@ var with_settings_createHigherOrderComponent = wp.compose.createHigherOrderCompo
 var with_settings_withSelect = wp.data.withSelect;
 /* harmony default export */ var with_settings = (with_settings_createHigherOrderComponent(function (Component) {
   return with_settings_withSelect(function (select, ownProps) {
-    var _select = select(STORE_NAME),
+    var _select = select(store_STORE_NAME),
         getSettings = _select.getSettings;
 
     return with_settings_objectSpread({}, ownProps, {
@@ -3321,7 +3911,7 @@ var parallax_panel_ = wp.i18n.__;
 var parallax_panel_wp$components = wp.components,
     parallax_panel_PanelBody = parallax_panel_wp$components.PanelBody,
     RangeControl = parallax_panel_wp$components.RangeControl,
-    RadioControl = parallax_panel_wp$components.RadioControl,
+    parallax_panel_RadioControl = parallax_panel_wp$components.RadioControl,
     parallax_panel_ToggleControl = parallax_panel_wp$components.ToggleControl;
 
 var parallax_panel_ParallaxPanel = function ParallaxPanel(props) {
@@ -3343,7 +3933,7 @@ var parallax_panel_ParallaxPanel = function ParallaxPanel(props) {
         enableParallax: !enableParallax
       });
     }
-  }), !!enableParallax && Object(react["createElement"])(RadioControl, {
+  }), !!enableParallax && Object(react["createElement"])(parallax_panel_RadioControl, {
     label: parallax_panel_('Parallax Orbital Speed', '__plugin_txtd'),
     selected: parallaxAmount,
     onChange: function onChange(nextParallaxAmount) {
@@ -4339,9 +4929,9 @@ function google_map_init() {
 /* harmony default export */ var google_map = (google_map_init);
 // CONCATENATED MODULE: ./src/blocks/header/icons.js
 
-var header_icons_wp$components = wp.components,
-    icons_SVG = header_icons_wp$components.SVG,
-    icons_Path = header_icons_wp$components.Path;
+var icons_wp$components = wp.components,
+    icons_SVG = icons_wp$components.SVG,
+    icons_Path = icons_wp$components.Path;
 var logoLeft = Object(react["createElement"])("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   width: "48px",
@@ -4834,7 +5424,7 @@ function headline_init() {
 
 /* harmony default export */ var blocks_headline = (headline_init);
 // EXTERNAL MODULE: ./node_modules/@wordpress/is-shallow-equal/index.js
-var is_shallow_equal = __webpack_require__(14);
+var is_shallow_equal = __webpack_require__(16);
 var is_shallow_equal_default = /*#__PURE__*/__webpack_require__.n(is_shallow_equal);
 
 // CONCATENATED MODULE: ./src/components/layout-panel/padding.js
@@ -5103,7 +5693,7 @@ function (_Component) {
 var color_controls_ = wp.i18n.__;
 var color_controls_Fragment = wp.element.Fragment;
 var color_controls_wp$components = wp.components,
-    ColorPalette = color_controls_wp$components.ColorPalette,
+    color_controls_ColorPalette = color_controls_wp$components.ColorPalette,
     Dropdown = color_controls_wp$components.Dropdown,
     color_controls_IconButton = color_controls_wp$components.IconButton,
     color_controls_RadioControl = color_controls_wp$components.RadioControl,
@@ -5158,7 +5748,7 @@ var color_controls_OverlayControls = function OverlayControls(props) {
 var color_controls_ColorControls = function ColorControls(props) {
   var contentColor = props.attributes.contentColor,
       setAttributes = props.setAttributes;
-  return Object(react["createElement"])(ColorPalette, {
+  return Object(react["createElement"])(color_controls_ColorPalette, {
     className: "nova-hide-clear-color",
     value: contentColor,
     colors: colors,
@@ -5838,9 +6428,9 @@ var hero_edit_wp$element = wp.element,
 var hero_edit_wp$compose = wp.compose,
     hero_edit_compose = hero_edit_wp$compose.compose,
     hero_edit_createHigherOrderComponent = hero_edit_wp$compose.createHigherOrderComponent;
-var _wp$data = wp.data,
-    edit_select = _wp$data.select,
-    dispatch = _wp$data.dispatch;
+var edit_wp$data = wp.data,
+    edit_select = edit_wp$data.select,
+    edit_dispatch = edit_wp$data.dispatch;
 var FirstBlockControls = utils_withFirstBlockConditions(function (props) {
   return Object(react["createElement"])(hero_edit_Fragment, null, Object(react["createElement"])(HeightPanel, props), Object(react["createElement"])(ScrollIndicatorPanel, props), Object(react["createElement"])(position_indicators_panel, props));
 });
@@ -7875,6 +8465,7 @@ function opentable_init() {
 
 
 
+
 var editor_dispatch = wp.data.dispatch;
 var updateCategory = wp.blocks.updateCategory;
 
@@ -7889,7 +8480,7 @@ function () {
     key: "initialize",
     value: function initialize(settings) {
       separator_addSeparatorFilters(settings);
-      editor_dispatch(STORE_NAME).updateSettings(settings);
+      editor_dispatch(store_STORE_NAME).updateSettings(settings);
       updateCategory('nova-blocks', {
         icon: nova
       });

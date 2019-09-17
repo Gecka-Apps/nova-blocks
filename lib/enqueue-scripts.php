@@ -22,6 +22,9 @@ function novablocks_admin_init() {
 		'wp-dom-ready',
 		'wp-editor',
 		'wp-element',
+		'wp-plugins',
+		'wp-edit-post',
+		'wp-hooks',
 	);
 
 	$google_maps_api_key = get_option( 'novablocks_google_maps_api_key', '' );
@@ -73,6 +76,36 @@ function novablocks_enqueue_assets() {
 	);
 }
 add_action( 'enqueue_block_assets', 'novablocks_enqueue_assets' );
+
+function novablocks_get_style_manager_css() {
+	$novablocks_style_manager_settings = get_option( 'novablocks_style_manager_settings', '' );
+	$novablocks_style_manager_css = '';
+
+	if ( ! empty( $novablocks_style_manager_settings ) ) {
+		ob_start();
+		$novablocks_style_manager_settings = json_decode( $novablocks_style_manager_settings );
+		foreach ( $novablocks_style_manager_settings as $block_type ) {
+			foreach ( $block_type as $block_style ) {
+				foreach ( $block_style as $setting ) {
+					echo $setting->output . PHP_EOL;
+				}
+			}
+		}
+
+		$novablocks_style_manager_css = ob_get_clean();
+
+		wp_add_inline_style( 'nova-blocks', $novablocks_style_manager_css );
+	}
+
+	return $novablocks_style_manager_css;
+}
+
+function novablocks_output_style_manager_css() {
+	$css = novablocks_get_style_manager_css();
+	echo '<style id="novablocks_style_manager_css">' . $css . '</style>';
+}
+add_action( 'wp_print_footer_scripts', 'novablocks_output_style_manager_css', 1000 );
+add_action( 'admin_footer', 'novablocks_output_style_manager_css', 1000 );
 
 function novablocks_enqueue_frontend_assets() {
 

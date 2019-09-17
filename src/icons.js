@@ -153,7 +153,16 @@ export const logo = (
 	<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path fillRule="evenodd" clipRule="evenodd" d="M12 0C5.37258 0 0 5.37258 0 12c0 6.6274 5.37258 12 12 12 6.6274 0 12-5.3726 12-12 0-6.62742-5.3726-12-12-12zm0 7c-2.76142 0-5 2.23858-5 5 0 2.7614 2.23858 5 5 5 2.7614 0 5-2.2386 5-5 0-2.76142-2.2386-5-5-5zm-7 5c0 3.866 3.13401 7 7 7 3.866 0 7-3.134 7-7 0-3.86599-3.134-7-7-7-3.86599 0-7 3.13401-7 7z" fill="#6565F2"/>
 	</svg>
+);
 
+export const novaFilled = (
+	<svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+		<g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
+			<path id="novaSvgFilledBlue" fill="#6565F2" d="M0 18C0 8.059 8.059 0 18 0s18 8.059 18 18-8.059 18-18 18S0 27.941 0 18z" />
+			<path id="novaSvgFilledYellow" fill="#FFE42E" fillRule="nonzero" d="M8 21.286A4.286 4.286 0 0112.286 17h1.168A4.546 4.546 0 0118 21.546v1.608A3.846 3.846 0 0114.154 27h-.44A5.714 5.714 0 018 21.286z" />
+			<path id="novaSvgFilledWhite" fill="#FFFFFF" d="M12.04 14a6.738 6.738 0 016.697-6h1.684A7.579 7.579 0 0128 15.579v.802c0 4-3.082 7.28-7.001 7.594l.001-.129v-2.573A7.273 7.273 0 0013.727 14H12.04z" />
+		</g>
+	</svg>
 );
 
 export const navigation = (

@@ -21,3 +21,23 @@
 	max-height: 300px;
 	overflow: hidden;
 }
+
+.edit-post-pinned-plugins .components-icon-button {
+
+	svg {
+		width: 20px;
+		height: 20px;
+	}
+
+	&:not(.is-toggled) {
+		#novaSvgFilledBlue { fill: #6565F2 !important }
+		#novaSvgFilledYellow { fill: #FFE42E !important }
+		#novaSvgFilledWhite { fill: #FFFFFF !important }
+	}
+
+	&.is-toggled {
+		#novaSvgFilledYellow,
+		#novaSvgFilledWhite { fill: #555d66 !important }
+	}
+
+}
