@@ -472,6 +472,26 @@ function novablocks_add_media_settings( $settings ) {
 				),
 				'default' => array(),
 			),
+			'proportions' => array(
+				'type'    => 'number',
+				'default' => '50',
+			),
+			'gridGap' => array(
+				'type'    => 'number',
+				'default' => '15',
+			),
+			'offset' => array(
+				'type'    => 'number',
+				'default' => '0',
+			),
+			'rotate' => array(
+				'type'    => 'number',
+				'default' => '0',
+			),
+			'scale' => array(
+				'type'    => 'number',
+				'default' => '0',
+			),
 		),
 		'template'           => array(
 			array(

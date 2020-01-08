@@ -18,6 +18,11 @@ const MediaPreview = function( props ) {
 			blockStyle,
 			mediaPosition,
 			images,
+			proportions,
+			gridGap,
+			rotate,
+			scale,
+			offset,
 		},
 		className,
 		updateImages,
@@ -62,8 +67,19 @@ const MediaPreview = function( props ) {
 		);
 	};
 
+	const style = {
+		'--novablocks-media-grid-proportions': proportions,
+		'--novablocks-media-grid-gap': gridGap,
+		'--novablocks-media-rotate': rotate,
+		'--novablocks-media-scale': scale,
+		'--novablocks-media-overlap': offset,
+	};
+
+	const gridRows = images.length > 2 ? 2 : 1;
+	const gridColumns = images.length > 1 ? 2 : 1;
+
 	return (
-		<div className={ classNames }>
+		<div className={ classNames } style={ style }>
 			<div className="wp-block-group__inner-container">
 				<div className="wp-block" data-align="wide">
 					<div className="novablocks-media__layout">
@@ -76,7 +92,9 @@ const MediaPreview = function( props ) {
 							</div>
 						</div>
 						<div className="novablocks-media__aside">
-							{ displayImages( images ) }
+							<div className={`novablocks-media__grid novablocks-media__grid--${gridRows}-rows novablocks-media__grid--${gridColumns}-columns`}>
+								{ displayImages( images ) }
+							</div>
 						</div>
 					</div>
 				</div>
