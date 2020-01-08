@@ -20,10 +20,14 @@
 
 	display: grid;
 
-	--smaller-column: calc( 75% - var(--novablocks-media-grid-proportions) * 0.5% );
-	--bigger-column: calc( 25% + var(--novablocks-media-grid-proportions) * 0.5% );
+	--smaller-column-percentage: calc( 75 - var(--novablocks-media-grid-proportions) * 0.5 );
+	--bigger-column-percentage: calc( 25 + var(--novablocks-media-grid-proportions) * 0.5 );
 
-	--actual-overlap: calc( var(--novablocks-media-scale) * var(--novablocks-media-overlap) / 100 );
+	--smaller-column: calc( var(--smaller-column-percentage) * 1% );
+	--bigger-column: calc( var(--bigger-column-percentage) * 1% );
+
+	//--actual-overlap: calc( var(--novablocks-media-scale) * var(--novablocks-media-overlap) / 100 );
+	--actual-overlap: var(--novablocks-media-overlap);
 
 	--difference: calc( 100 - var(--novablocks-media-scale, 100) );
 	--scale: calc(var(--smaller-column) + var(--bigger-column) * var(--difference) / 100);
@@ -65,29 +69,27 @@
 .novablocks-media__image {
 	--novablocks-media-scale-ratio: 1;
 	--novablocks-media-overlap-ratio: 1;
-
-	//img {
-	//	box-shadow:
-	//		0px 64px 128px rgba(42, 54, 52, 0.1),
-	//		0px 16px 32px rgba(42, 54, 52, 0.1);
-	//}
 }
 
 .novablocks-media__image:first-child:nth-last-child(2) {
 	grid-row: 1 / span 1;
 	grid-column: 1 / span 1;
 
-	height: calc( 100% - var(--smaller-column) * var(--novablocks-media-scale) / 100 );
-	margin-bottom: auto;
-	margin-right: calc( -0.5% * var(--actual-overlap) );
+	//height: calc( 100% - var(--smaller-column) * var(--novablocks-media-scale) / 100 );
+	//margin-bottom: auto;
+	margin-right: calc( -0.25% * var(--actual-overlap) );
 
 	& ~ .novablocks-media__image:last-child {
 		grid-row: 1 / span 1;
 		grid-column: 2 / span 1;
 
-		height: calc( 100% - var(--bigger-column) * var(--novablocks-media-scale) / 100 );
-		margin-top: auto;
-		margin-left: calc( -0.5% * var(--actual-overlap) );
+		--height: calc( 100% - var(--bigger-column) * var(--novablocks-media-scale) / 100 );
+		height: var(--height);
+		align-self: center;
+		//margin-top: auto;
+
+		margin-top: calc( 100% / ( var(--bigger-column-percentage) * var(--novablocks-media-scale) ) - var(--height) );
+		margin-left: calc( -0.25% * var(--actual-overlap) );
 	}
 }
 

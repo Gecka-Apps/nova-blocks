@@ -27,6 +27,7 @@ const MediaInspectorControls = function( props ) {
 			rotate,
 			scale,
 			offset,
+			displace
 		},
 		setAttributes,
 		settings: {
@@ -63,6 +64,14 @@ const MediaInspectorControls = function( props ) {
 						label={ __( 'Offset?' ) }
 						value={ offset }
 						onChange={ offset => setAttributes( { offset } ) }
+						min={ 0 }
+						max={ 100 }
+					/>
+
+					<RangeControl
+						label={ __( 'Displace?' ) }
+						value={ displace }
+						onChange={ displace => setAttributes( { displace } ) }
 						min={ 0 }
 						max={ 100 }
 					/>

@@ -492,6 +492,10 @@ function novablocks_add_media_settings( $settings ) {
 				'type'    => 'number',
 				'default' => '0',
 			),
+			'displace' => array(
+				'type'    => 'number',
+				'default' => '0',
+			),
 		),
 		'template'           => array(
 			array(

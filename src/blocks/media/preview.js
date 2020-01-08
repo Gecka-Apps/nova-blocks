@@ -23,6 +23,7 @@ const MediaPreview = function( props ) {
 			rotate,
 			scale,
 			offset,
+			displace,
 		},
 		className,
 		updateImages,
@@ -73,6 +74,7 @@ const MediaPreview = function( props ) {
 		'--novablocks-media-rotate': rotate,
 		'--novablocks-media-scale': scale,
 		'--novablocks-media-overlap': offset,
+		'--novablocks-media-displace': displace,
 	};
 
 	const gridRows = images.length > 2 ? 2 : 1;
