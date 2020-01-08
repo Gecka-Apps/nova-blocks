@@ -94,7 +94,7 @@ const MediaPreview = function( props ) {
 							</div>
 						</div>
 						<div className="novablocks-media__aside">
-							<div className={`novablocks-media__grid novablocks-media__grid--${gridRows}-rows novablocks-media__grid--${gridColumns}-columns`}>
+							<div className={`novablocks-media__grid-cell novablocks-media__grid--${gridRows}-rows novablocks-media__grid--${gridColumns}-columns`}>
 								{ displayImages( images ) }
 							</div>
 						</div>

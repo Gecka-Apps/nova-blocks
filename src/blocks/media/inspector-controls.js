@@ -49,7 +49,8 @@ const MediaInspectorControls = function( props ) {
 						value={ proportions }
 						onChange={ proportions => setAttributes( { proportions } ) }
 						min={ 0 }
-						max={ 100 }
+						step={ 1 }
+						max={ 24 }
 					/>
 
 					<RangeControl
@@ -81,8 +82,8 @@ const MediaInspectorControls = function( props ) {
 						value={ gridGap }
 						onChange={ gridGap => setAttributes( { gridGap } ) }
 						min={ 0 }
-						max={ 100 }
-						step={ 5 }
+						max={ 30 }
+						step={ 1 }
 					/>
 
 					<RangeControl
