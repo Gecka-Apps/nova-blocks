@@ -191,21 +191,21 @@
 	transition: all 1s;
 
 	--image-one-col-start: 1;
-	--image-one-col-end: 15;
-	--image-one-row-start: 1;
-	--image-one-row-end: 30;
-	--image-two-col-start: 15;
-	--image-two-col-end: 30;
-	--image-two-row-start: 1;
-	--image-two-row-end: 30;
+	--image-one-col-end: 16;
+	--image-one-row-start: 6;
+	--image-one-row-end: 26;
+	--image-two-col-start: 16;
+	--image-two-col-end: 31;
+	--image-two-row-start: 6;
+	--image-two-row-end: 26;
 }
 
 .novablocks-media__image:first-child:nth-last-child(2) {
-	grid-row: var(--image-one-row-start) / calc(var(--image-one-row-end) - var(--novablocks-media-overlap));
-	grid-column: var(--image-one-col-start) / calc(var(--image-one-col-end) + var(--novablocks-media-overlap));
+	grid-row: calc(calc(var(--image-one-row-start) + var(--novablocks-media-scale)) - var(--novablocks-media-displace)) / calc(calc(var(--image-one-row-end) - var(--novablocks-media-displace)) - var(--novablocks-media-scale));
+	grid-column: var(--image-one-col-start) / calc(var(--image-one-col-end) + var(--novablocks-media-grid-proportions));
 
 	& ~ .novablocks-media__image:last-child {
-		grid-row: calc( var(--image-two-row-start) + var(--novablocks-media-grid-proportions) ) / var(--image-two-row-end);
-		grid-column: var(--image-two-col-start) / var(--image-two-col-end);
+		grid-row: calc(calc(var(--image-two-row-start) + var(--novablocks-media-displace)) - var(--novablocks-media-scale))/ calc(calc(var(--image-two-row-end) + var(--novablocks-media-displace)) + var(--novablocks-media-scale));
+		grid-column: calc(calc(var(--image-two-col-start) + var(--novablocks-media-grid-proportions) ) - var(--novablocks-media-overlap)) / var(--image-two-col-end);
 	}
 }

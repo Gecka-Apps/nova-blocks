@@ -6946,9 +6946,9 @@ var inspector_controls_MediaInspectorControls = function MediaInspectorControls(
         proportions: proportions
       });
     },
-    min: 0,
-    step: 1,
-    max: 24
+    min: -5,
+    max: 5,
+    step: 1
   }), Object(react["createElement"])(media_inspector_controls_RangeControl, {
     label: media_inspector_controls_('Scale?'),
     value: scale,
@@ -6957,8 +6957,9 @@ var inspector_controls_MediaInspectorControls = function MediaInspectorControls(
         scale: scale
       });
     },
-    min: 0,
-    max: 100
+    min: -4,
+    max: 4,
+    step: 1
   }), Object(react["createElement"])(media_inspector_controls_RangeControl, {
     label: media_inspector_controls_('Offset?'),
     value: offset,
@@ -6968,7 +6969,8 @@ var inspector_controls_MediaInspectorControls = function MediaInspectorControls(
       });
     },
     min: 0,
-    max: 100
+    max: 5,
+    step: 1
   }), Object(react["createElement"])(media_inspector_controls_RangeControl, {
     label: media_inspector_controls_('Displace?'),
     value: displace,
@@ -6977,8 +6979,9 @@ var inspector_controls_MediaInspectorControls = function MediaInspectorControls(
         displace: displace
       });
     },
-    min: 0,
-    max: 100
+    min: -4,
+    max: 4,
+    step: 1
   }), Object(react["createElement"])(media_inspector_controls_RangeControl, {
     label: media_inspector_controls_('Grid gap?'),
     value: gridGap,

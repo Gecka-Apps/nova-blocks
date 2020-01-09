@@ -48,17 +48,18 @@ const MediaInspectorControls = function( props ) {
 						label={ __( 'Grid?' ) }
 						value={ proportions }
 						onChange={ proportions => setAttributes( { proportions } ) }
-						min={ 0 }
+						min={ -5 }
+						max={ 5 }
 						step={ 1 }
-						max={ 24 }
 					/>
 
 					<RangeControl
 						label={ __( 'Scale?' ) }
 						value={ scale }
 						onChange={ scale => setAttributes( { scale } ) }
-						min={ 0 }
-						max={ 100 }
+						min={ -4 }
+						max={ 4 }
+						step={ 1 }
 					/>
 
 					<RangeControl
@@ -66,15 +67,17 @@ const MediaInspectorControls = function( props ) {
 						value={ offset }
 						onChange={ offset => setAttributes( { offset } ) }
 						min={ 0 }
-						max={ 100 }
+						max={ 5 }
+						step={ 1 }
 					/>
 
 					<RangeControl
 						label={ __( 'Displace?' ) }
 						value={ displace }
 						onChange={ displace => setAttributes( { displace } ) }
-						min={ 0 }
-						max={ 100 }
+						min={ -4 }
+						max={ 4 }
+						step={ 1 }
 					/>
 
 					<RangeControl
